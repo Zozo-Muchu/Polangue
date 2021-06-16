@@ -19,13 +19,18 @@
     font-style: normal;
   }
   /*couleur site*/
-  $couleur1:#B9121B;
-  $couleur2:white;
-  $couleur3:#1F2A36;
-  $couleur4:#FFFAF4;
-  $couleur5:#F2F2F2;
+  $couleur1:#F1F2F2;
+  $couleur2:#FEDCD2;
+  $couleur3:#C1EEE8;
+  $couleur4:#DF744A;
+  $couleur5:#046380;
   $couleur6:#FFBD4F;
+  $couleur7:#1B5E55;
+  $couleur8:#DCB239;
 
+html{
+    background-color: $couleur5;
+}
 .bloc_page{
     width: 100%;
     max-width: 1000px;
@@ -49,21 +54,15 @@ header{
     align-items: center;
     background-color: $couleur3;
     border-radius: 20px 20px 0 0;
-    h2{
+    .logo{
         width: 100%;
         height: auto;
-        font-size: 350%;
-        margin: 0 0 0 4%;
-        font-family: alex_brushregular, Arial, sans-serif;
-        background-clip: text;
-        -webkit-background-clip: text;
-        background-clip: text;
-        background-image: linear-gradient(to left, $couleur1, $couleur2);
-        color:transparent;
-
-    }
-    .fa-feather-alt{
-        color: $couleur1;
+            .logo_polangue{
+                width: 35%;
+                height: auto;
+                box-sizing: border-box;
+                padding-left:5%;
+            }
     }
     nav{
         width: 50%;
@@ -88,7 +87,11 @@ header{
     }
 }
 .titre{
-    background-color: lighten($couleur1, 50);
+    background-image: url(ban/fond.jpg);
+    background-size: cover;
+	background-position: center;
+    width: 100%;
+    height: 200px;
     h1{
         width: 100%;
         height: 90px;
@@ -98,13 +101,20 @@ header{
         font-size: 190%;
         margin: 0;
     }
+    h2{
+        font-size: 140%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .presentation{
     display: flex;
     justify-content: space-between;
     width: calc (100%-5%);
     height: auto;
-    margin: 2%;
+    margin: 5% 2% 5% 2%;
         .services{
             width: 65%;
             height: auto;
@@ -116,9 +126,13 @@ header{
                     display: flex;
                     align-items: center;
                     flex-direction: column;
-                    background-color: lighten($couleur1,30);
-                    box-shadow: 6px 6px 6px $couleur1;
+                    background-color: lighten($couleur2,5);
+                    box-shadow: 6px 6px 6px darken($couleur1,5);
                     cursor: pointer;
+                    &:hover{
+                        background-color: lighten($couleur2,6);
+                        box-shadow: 6px 6px 6px darken($couleur1,10);
+                    }
                     h2{
                         font-style: italic;
                     }
@@ -133,10 +147,7 @@ header{
                         padding: 2%;
                         margin: 0;
                         font-size: 120%;
-                    }
-                    &:hover{
-                        background-color: lighten($couleur1,25);
-                        box-shadow: 6px 6px 6px darken($couleur1,10);
+                        color: $couleur7;
                     }
                 }
         }
@@ -148,20 +159,20 @@ header{
             justify-content: flex-start;
             align-items: center;
             flex-direction: column;
-            background-color: lighten($couleur1,30);
+            background-color: lighten($couleur8,35);
             box-shadow: 6px 6px 6px $couleur1;
                  h2{
                      font-size: 160%;
                     }
                  h3, li{
                 font-size: 100%;
-                color: $couleur3;
+                color: $couleur7;
                 }
                 li{
                     margin-bottom: 4%;
                 }
                 &:hover{
-                    background-color: lighten($couleur1,25);
+                    background-color: lighten($couleur8,40);
                     box-shadow: 6px 6px 6px darken($couleur1,10);
                 }
         }
@@ -171,7 +182,7 @@ footer{
     justify-content: space-between;
     border-radius: 0 0 20px 20px;
     background-color: $couleur3;
-    color: $couleur4;
+    color: $couleur7;
         .contact1{
             width: 200%;
             height: auto;
@@ -185,6 +196,15 @@ footer{
                         li{
                             margin-bottom: 1%;
                         }
+                        .mail:hover{
+                            color: $couleur4;
+                        }
+                        a:hover{
+                            color: $couleur4;
+                        }
+                }
+                a{
+                    color: $couleur7;
                 }
                 .fa-map-marker-alt, .fa-phone-alt, .fa-mobile-alt, .fa-envelope{
                     width: 20px;
