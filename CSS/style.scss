@@ -18,6 +18,8 @@
     font-weight: normal;
     font-style: normal;
   }
+/*fin police*/
+
   /*couleur site*/
   $couleur1:#F1F2F2;
   $couleur2:#FEDCD2;
@@ -27,7 +29,31 @@
   $couleur6:#FFBD4F;
   $couleur7:#1B5E55;
   $couleur8:#DCB239;
+/*fin couleur site*/
 
+
+/*apparition des "sources"*/
+@keyframes fondu{
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@mixin valeur_fondu1 {
+    animation: fondu 1s ease-in-out;
+}
+@mixin valeur_fondu2 {
+    animation: fondu 2s ease-in-out;
+}
+@mixin valeur_fondu3 {
+    animation: fondu 3s ease-in-out;
+}
+/*fin animation*/
+
+/*html code commun*/
 html{
     background-color: $couleur5;
 }
@@ -42,10 +68,13 @@ html{
     font-family: robotoregular, Arial, sans-serif;
         a{
             text-decoration: none;
-            color: $couleur3;
         }
 }
+/*fin html code commun*/
 
+
+
+/*code page d'accueil*/
 header{
     width: 100%;
     height: 150px;
@@ -76,12 +105,17 @@ header{
                 height: auto;
                 display: flex;
                 justify-content: flex-end;
-                color: $couleur4;
                     li{
                         display: flex;
                         margin: 5%;
                         font-family: alex_brushregular, Arial, sans-serif;
                         cursor: pointer;
+                            a{
+                             color: $couleur4;
+                                &:hover{
+                                    color: darken($couleur4,15);
+                                }
+                             }
                     }
             }
     }
@@ -116,19 +150,43 @@ header{
     height: auto;
     margin: 5% 2% 5% 2%;
         .services{
-            width: 65%;
-            height: auto;
-                .service_block{
-                    width: calc (100%-4%);
-                    height: auto;
-                    margin: 2%;
+            width: 62%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+                .service_block1, .service_block2, .service_block3{
+                    width: 100%;
+                    height: 30%;
                     border-radius: 20px;
                     display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    background-color: lighten($couleur2,5);
-                    box-shadow: 6px 6px 6px darken($couleur1,5);
+                    box-shadow: 6px 6px 6px darken($couleur8,40);
                     cursor: pointer;
+                    background-color: lighten($couleur8,30);
+                        a{
+                            width: 48%;
+                            height: 100%;
+                            justify-content: center;
+                            align-content: center;
+                            box-sizing: border-box;
+                            padding: 1%;
+                            border-radius: 20px 0 0 20px;
+                        }
+                        .presentation1{
+                            background-image: url(image/traduction.jpg);
+                            background-size: cover;
+                            background-position: center;
+                        }
+                        .presentation2{
+                            background-image: url(image/cour.jpg);
+                            background-size: cover;
+                            background-position: center; 
+                        }
+                        .presentation3{
+                            background-image: url(image/voyage.jpg);
+                            background-size: cover;
+                            background-position: center;
+                        }
                     &:hover{
                         background-color: lighten($couleur2,6);
                         box-shadow: 6px 6px 6px darken($couleur1,10);
@@ -146,21 +204,32 @@ header{
                         box-sizing: border-box;
                         padding: 2%;
                         margin: 0;
-                        font-size: 120%;
+                        font-size: 100%;
                         color: $couleur7;
+                        position: relative;
+                        right:-110%
                     }
+                }
+                .service_block1{
+                    @include valeur_fondu1;
+                }
+                .service_block2{
+                    @include valeur_fondu2;
+                }
+                .service_block3{
+                    @include valeur_fondu3;
                 }
         }
         aside{
             width: 35%;
-            height: auto;
+            height: 500px;
             border-radius: 20px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
             flex-direction: column;
-            background-color: lighten($couleur8,35);
-            box-shadow: 6px 6px 6px $couleur1;
+            background-color: lighten($couleur8,30);
+            background-color: lighten($couleur8,30);
                  h2{
                      font-size: 160%;
                     }
@@ -225,9 +294,22 @@ footer{
                 }
                 ul{
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: center;
                     font-size: 150%;
                     list-style-type: none;
+                        a{
+                            color: $couleur7;
+                            &:hover{
+                                color: $couleur4;
+                            }
+                        }
+                        li{
+                            width: 15%;
+                            height: auto;
+                            display: flex;
+                            align-content: center;
+                            justify-content: center;
+                        }
                 }
         }
 }
